@@ -20,7 +20,7 @@ async def start(message: types.Message):
     keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
     keyboard.add('Настроить профиль', 'Редактировать профиль', 'Удалить профиль', 'Просмотреть информацию о себе')
     await message.answer(
-        "Добро пожаловать в Гарри Поттер Опросник! Вы можете настроить свой профиль.",
+        "Добро пожаловать в Анкету Гарри Поттер! Вы можете настроить свой профиль.",
         reply_markup=keyboard)
 
 @dp.message_handler(lambda message: message.text == 'Настроить профиль')
@@ -216,7 +216,7 @@ async def update_quidditch_role(callback_query: types.CallbackQuery, state: FSMC
     role = callback_query.data
     cursor.execute('UPDATE users SET quidditch_role = ? WHERE user_id = ?', (role, callback_query.from_user.id))
 
-    await callback_query.message.answer(f'Ваша роль в квиддиче изменена на: {PLAYER_ROLE[role]}')
+    await callback_query.message.answer(f'Ваша роль в Квиддиче изменена на: {PLAYER_ROLE[role]}')
     await state.finish()
 
 @dp.message_handler(lambda message: message.text == 'Просмотреть информацию о себе')
