@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: harry_potter_bot
+    environment:
+      - API_TOKEN=6990798175:AAHJQKJh-D3i7mDsRNS4saMmphS7FBUvmWU
+    volumes:
+      - .:/app
+    command: python main.py
+
